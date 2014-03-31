@@ -13,14 +13,11 @@ import socket
 import binascii
 import hashlib
 import bitcoin.base58 as base58
-import bitcoin.script as script
-
-from bitcoin.serialize import *
-from bitcoin.coredefs import *
+import bitcoin.core
 
 
 class CAddress(object):
-    def __init__(self, protover=PROTO_VERSION):
+    def __init__(self, protover=bitcoin.core.PROTO_VERSION):
         self.protover = protover
         self.nTime = 0
         self.nServices = 1

@@ -17,6 +17,7 @@ if sys.version > '3':
 else:
     import cStringIO as io
 from bitcoin.core import *
+from bitcoin.net import *
 
 MSG_TX = 1
 MSG_BLOCK = 2
@@ -281,7 +282,7 @@ def message_read(netmagic, f):
         recvbuf = f.read(4 + 12 + 4 + 4)
     except IOError:
         return None
-    
+
     # check magic
     if len(recvbuf) < 4:
         return
